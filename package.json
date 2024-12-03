@@ -1,0 +1,89 @@
+{
+  "name": "my-package",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "my package",
+  "keywords": [
+    "my-package"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vfuenteHub/package-builder.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vfuenteHub/package-builder.git/issues"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/",
+    "index.js",
+    "index.node.js",
+    "index.styles.js"
+  ],
+  "main": "./index.js",
+  "module": "./index.node.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./index.js"
+    },
+    "./css": "./index.styles.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "publish": "rimraf --glob dist && vite build --mode development; vite build --mode production && clean-publish"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react-swc": "^3.7.2",
+    "clean-publish": "^5.1.0",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.15",
+    "globals": "^15.13.0",
+    "prettier": "3.4.1",
+    "rimraf": "^6.0.1",
+    "sass": "^1.81.0",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.16.0",
+    "vite": "^6.0.2",
+    "vite-plugin-dts": "^4.3.0"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "clean-publish": {
+    "files": [
+      ".gitignore",
+      ".npmrc",
+      ".prettierignore",
+      "tsconfig.json",
+      "tsconfig.node.json",
+      "vite.config.mts"
+    ],
+    "fields": [
+      "type",
+      "scripts"
+    ],
+    "cleanDocs": true
+  }
+}
